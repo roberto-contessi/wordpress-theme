@@ -9,7 +9,9 @@
  * @since 1.0.0
  */
 
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 
 <html class="no-js" <?php language_attributes(); ?>>
 
@@ -25,3 +27,7 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+
+	<header>
+		<?php get_template_part('template-parts/header/header', 'navbar'); ?>
+    </header>

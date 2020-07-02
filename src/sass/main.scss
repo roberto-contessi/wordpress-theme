@@ -1,0 +1,9 @@
+@import 'modules/variables';
+// bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+// typography
+@import 'modules/utilities';
+@import 'modules/typography';
+@import 'modules/lazy-load';
+// base style
+@import 'base';

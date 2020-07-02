@@ -1,0 +1,10 @@
+/** 
+ * Lazy loading styles
+ */
+img {
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+    &.lazy {
+        opacity: 0.2;
+    }
+}

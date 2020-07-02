@@ -1,0 +1,118 @@
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    @extend %no-scrollbar;
+    @include media-breakpoint-up(sm) {
+        &.admin-bar .fixed-top {
+            top: 46px;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        &.admin-bar .fixed-top {
+            top: 32px;
+        }
+    }
+}
+
+.navbar-brand {
+    height: 40px;
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.section-y-padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    @include media-breakpoint-up(md) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+.page-hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    &::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        //background-color: rgba($color: #000000, $alpha: 0.2);
+        background-image: url('../../assets/img/pattern-hero.png');
+    }
+    .page-hero-content {
+        min-height: 336px;
+        h1,
+        h2,
+        p {
+            color: $white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+.section-who-we-are {
+    position: relative;
+    img.img-who-we-are {
+        position: absolute;
+        top: 0px;
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+    }
+}
+
+
+/**
+* Tease
+*/
+
+//tease category
+.tease-category {
+    position: relative;
+    height: 275px;
+    @include media-breakpoint-up(md) {
+        height: 300px;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: static;
+    }
+}
+
+.objectfit-wrap {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: static;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) {}
+
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) {}
+
+// Large devices (desktops, 992px and up)
+@include media-breakpoint-up(lg) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl) {}
