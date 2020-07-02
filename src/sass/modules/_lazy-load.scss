@@ -1,6 +1,12 @@
 /** 
  * Lazy loading styles
  */
+
+img {
+    width: 100%;
+    height: auto;
+}
+
 img {
     opacity: 1;
     transition: opacity 0.3s ease-out;

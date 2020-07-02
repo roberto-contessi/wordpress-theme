@@ -10,28 +10,31 @@
  */
 ?>
 
-<?php get_header(); /** funzione */ ?> 
+<?php get_header(); ?>
 
 <?php
-get_header();
- 
+// wordpress loop
 if ( have_posts() ) : 
-    while ( have_posts() ) : the_post();
-?>
+    while ( have_posts() ) : the_post(); 
+        // Display post content
+        //print("<h1>".print_r($post,true)."</h1>");
+    ?>
 
-    <h1> <?php the_title(); ?> </h1>
-    <div>
-    <?php the_content(); ?>
+    <h1>
+        <?php the_title(); ?>
+    </h1>
+    
+    <div> 
+        <?php the_content(); ?>
     </div>
-
     <small>
-    <?php the_excerpt(); ?>
+        <?php the_excerpt(); ?>
     </small>
 
     <?php
     endwhile;
 else :
-    _e( 'Sorry, no posts matched your criteria.', 'textdomain' );
+    _e( 'Sorry, no posts matched your criteria.', 'samtheme' );
 endif;
 ?>
 

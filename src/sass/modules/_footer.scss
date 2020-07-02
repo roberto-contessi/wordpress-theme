@@ -1,0 +1,30 @@
+.page-footer {
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    background-color: $primary;
+    color: $white;
+
+    a {
+        color: $white;
+    }
+
+    .pre-footer {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    .social-icon {
+        height: 31px;
+        width: auto;
+    }
+}
+
+
+
+.footer-logo {
+    max-width: 116px;
+    height: auto;
+    padding-bottom: 1rem;
+}

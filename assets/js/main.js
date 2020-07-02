@@ -1,52 +1,126 @@
-// aspetto che il dom sia pronto
-document.addEventListener("DOMContentLoaded", function() {
-    //costruisco un array con tutte le immagini con classe lazy 
-    let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-    let active = false;
+//google map js
 
-    const lazyLoad = function() {
-        if (active === false) {
-            active = true;
+(function($) {
 
-            setTimeout(function() {
-                // per ogni immagine nell'array lazyImage:
-                lazyImages.forEach(function(lazyImage) {
-                    // controllo se l'immagine è in vista e se è visibile
-                    if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
-                        // idrato src data-src
-                        lazyImage.src = lazyImage.dataset.src
-                            // se esiste il data-srcset allora idrato anche l'attributo srcset con data-srcset
-                        if (lazyImage.dataset.srcset) {
-                            lazyImage.srcset = lazyImage.dataset.srcset
-                        }
+    /**
+     * initMap
+     *
+     * Renders a Google Map onto the selected jQuery element
+     *
+     * @date    22/10/19
+     * @since   5.8.6
+     *
+     * @param   jQuery $el The jQuery element.
+     * @return  object The map instance.
+     */
+    function initMap($el) {
 
-                        // rimuovo la classe lazy per non ripetere l'operazione su questa immagine
-                        lazyImage.classList.remove("lazy");
+        // Find marker elements within map.
+        var $markers = $el.find('.marker');
 
-                        // tolgo l'immagine corrente dall'array delle immagini
-                        lazyImages = lazyImages.filter(function(image) {
-                            return image !== lazyImage;
-                        })
+        // Create gerenic map.
+        var mapArgs = {
+            zoom: $el.data('zoom') || 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map($el[0], mapArgs);
 
-                        //rimuovo i listeners
-                        if (lazyImages.length === 0) {
-                            document.removeEventListener("scroll", lazyLoad);
-                            window.removeEventListener("resize", lazyLoad);
-                            window.removeEventListener("orientationchange", lazyLoad);
-                        }
-                    }
-                });
+        // Add markers.
+        map.markers = [];
+        $markers.each(function() {
+            initMarker($(this), map);
+        });
 
-                active = false;
-            }, 200);
+        // Center map based on markers.
+        centerMap(map);
+
+        // Return map instance.
+        return map;
+    }
+
+    /**
+     * initMarker
+     *
+     * Creates a marker for the given jQuery element and map.
+     *
+     * @date    22/10/19
+     * @since   5.8.6
+     *
+     * @param   jQuery $el The jQuery element.
+     * @param   object The map instance.
+     * @return  object The marker instance.
+     */
+    function initMarker($marker, map) {
+
+        // Get position from marker.
+        var lat = $marker.data('lat');
+        var lng = $marker.data('lng');
+        var latLng = {
+            lat: parseFloat(lat),
+            lng: parseFloat(lng)
+        };
+
+        // Create marker instance.
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+        });
+
+        // Append to reference for later use.
+        map.markers.push(marker);
+
+        // If marker contains HTML, add it to an infoWindow.
+        if ($marker.html()) {
+
+            // Create info window.
+            var infowindow = new google.maps.InfoWindow({
+                content: $marker.html()
+            });
+
+            // Show info window when marker is clicked.
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
         }
     }
 
-    // trigger funzione lazyLoad
-    lazyLoad();
-    // mi metto in ascolto sugli eventi di scroll e di resize per attivare la funzione lazyLoad
-    document.addEventListener("scroll", lazyLoad);
-    window.addEventListener("resize", lazyLoad);
-    window.addEventListener("orientationchange", lazyLoad);
+    /**
+     * centerMap
+     *
+     * Centers the map showing all markers in view.
+     *
+     * @date    22/10/19
+     * @since   5.8.6
+     *
+     * @param   object The map instance.
+     * @return  void
+     */
+    function centerMap(map) {
 
-})
+        // Create map boundaries from all map markers.
+        var bounds = new google.maps.LatLngBounds();
+        map.markers.forEach(function(marker) {
+            bounds.extend({
+                lat: marker.position.lat(),
+                lng: marker.position.lng()
+            });
+        });
+
+        // Case: Single marker.
+        if (map.markers.length == 1) {
+            map.setCenter(bounds.getCenter());
+
+            // Case: Multiple markers.
+        } else {
+            map.fitBounds(bounds);
+        }
+    }
+
+    // Render maps on page load.
+    $(document).ready(function() {
+        $('.acf-map').each(function() {
+            var map = initMap($(this));
+        });
+    });
+
+})(jQuery);

@@ -30,4 +30,6 @@
 
 	<header>
 		<?php get_template_part('template-parts/header/header', 'navbar'); ?>
-    </header>
+	</header>
+	
+	<?php the_field('head-script', 'options'); ?>

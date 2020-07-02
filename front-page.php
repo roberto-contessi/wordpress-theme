@@ -1,6 +1,7 @@
 <?php
 /**
- * The homepage template 
+ * The homepage template file
+ *
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,33 +12,18 @@
 ?>
 
 <?php get_header(); ?>
-<div class="container">
-    <div class="row">
-        <div class="col">
 
-<?php 
-//wordpress loop
-if ( have_posts() ) : 
-    while ( have_posts() ) : the_post(); 
-        // Display post content
-        ?>
-        <h1>
-            <?php the_title();?>
-        </h1>
-        <div>
-            <?php the_content();?>
-        </div>
-        <small>
-            <?php the_excerpt();?>
-        </small>
-        <?php
-    endwhile; 
-else:
-    _e('Sorry, no posts matched your criteria.','samtheme');
-endif; 
-?>
+    <!-- page hero -->
+    <?php get_template_part('template-parts/sections/section-page-hero'); ?>
 
-        </div>
-    </div>
-</div>
+    <!-- section who we are -->
+    <?php get_template_part('template-parts/sections/section-who-we-are'); ?>
+
+    <!-- section categories -->
+    <?php get_template_part('template-parts/sections/section-categories'); ?>
+
+    <!-- section blog -->
+    <?php get_template_part( 'template-parts/sections/section', 'blog' ); ?>
+    
+
 <?php get_footer(); ?>
