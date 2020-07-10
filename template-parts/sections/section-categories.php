@@ -1,4 +1,17 @@
 
+<?php
+/**
+ * Section Category
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package WordPress
+ * @subpackage Rob_Theme
+ * @since 1.0.0
+ */
+?>
+
+
 <?php 
     // $categories = get_categories( array(
     //     'orderby' => 'name',
@@ -24,8 +37,8 @@
             foreach( $categories as $category ) : 
                 $image = get_field('featured_image', $category);
                 $cat_url = get_category_link( $category->term_id );
-                $description = sprintf( esc_html__( 'Description: %s', 'sam-theme' ), $category->description );
-                $count = sprintf( esc_html__( 'Post Count: %s', 'sam-theme' ), $category->count );
+                $description = sprintf( esc_html__( 'Description: %s', 'rob-theme' ), $category->description );
+                $count = sprintf( esc_html__( 'Post Count: %s', 'rob-theme' ), $category->count );
                 ?>
             
                 <div class="col-12 col-md-6 my-3">
@@ -48,7 +61,7 @@
                             endif;
                             ?>
                                 
-                                <a href="<?php echo $cat_url; ?>" class="btn btn-primary text-uppercase btn-lg rounded-0"><?php echo __('Continua','sam-theme')?></a>
+                                <a href="<?php echo $cat_url; ?>" class="btn btn-primary text-uppercase btn-lg rounded-0"><?php echo __('Continua','rob-theme')?></a>
                             </div>
                         </div>
                     </article>

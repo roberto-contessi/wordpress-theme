@@ -3,7 +3,7 @@
  * Displays the next and previous post navigation in single posts.
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage Rob_Theme
  * @since 1.0.0
  */
 

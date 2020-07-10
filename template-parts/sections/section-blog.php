@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage Rob_Theme
  * @since 1.0.0
  */
 ?>
@@ -21,12 +21,13 @@
 );
  
  // The Query
+ // Query custom (parametri che inserisco negli array degli argomenti) al database 
  $the_query = new WP_Query( $args );
  
  ?>
 
 
-<section>
+<section class="section section-y-padding">
     <div class="container">
         <div class="row"> 
 
@@ -35,7 +36,7 @@
             </div>
 
 
-                <?php  // The Loop
+                <?php  // Un Loop di wordpress con una query custom
                     if ( $the_query->have_posts() ) {
                       
                         while ( $the_query->have_posts() ) {
@@ -63,7 +64,7 @@
         </div>
         <div class="row"> 
             <div class="col-12">
-                <a href="http://localhost:8888/blog/" class="btn btn-primary text-uppercase rounded-0 mt-5 mb-5">Continua</a>   
+                <a href="<?php echo get_template_directory_uri(); ?>/blog" class="btn btn-primary text-uppercase rounded-0 mt-5 mb-5">Continua</a>   
             </div>       
         </div>
       

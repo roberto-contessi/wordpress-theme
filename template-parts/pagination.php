@@ -1,4 +1,12 @@
 <?php
+/**
+ * Paginnation
+ *
+ * @package WordPress
+ * @subpackage Rob_Theme
+ * @since 1.0.0
+ */
+
 $prev_text = '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17">
 <path fill="#4A4A4A" fill-rule="nonzero" d="M.589 8.721l7.555 7.69a.287.287 0 0 0 .417-.002l.851-.888a.316.316 0 0 0 .087-.222.317.317 0 0 0-.09-.22L2.925 8.5 9.41 1.92a.317.317 0 0 0 .09-.22.316.316 0 0 0-.087-.221L8.563.59a.29.29 0 0 0-.418-.003L.59 8.278a.317.317 0 0 0 0 .443H.588z" />
 </svg>';

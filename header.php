@@ -1,11 +1,11 @@
 <?php
 /**
- * Header file for the Sam Theme WordPress default theme.
+ * Header file for the Rob Theme WordPress default theme.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage Rob_Theme
  * @since 1.0.0
  */
 
@@ -22,7 +22,8 @@
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 
-		<?php wp_head(); ?>
+		<?php wp_head(); 
+		the_field('head-script', 'options'); ?>
 
 	</head>
 
@@ -32,4 +33,4 @@
 		<?php get_template_part('template-parts/header/header', 'navbar'); ?>
 	</header>
 	
-	<?php the_field('head-script', 'options'); ?>
+	

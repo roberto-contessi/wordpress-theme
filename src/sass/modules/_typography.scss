@@ -53,11 +53,20 @@ h2,
 .title-recent-post a {
     text-transform: uppercase;
     font-weight: 600;
-    color: $secondary;
+    color: $primary;
 }
 
 .categoria,
 .data-copy {
     text-transform: uppercase;
     font-size: 1em;
+}
+
+.categoria {
+    color: $secondary;
+}
+
+.page-numbers {
+    margin-left: 10px;
+    margin-right: 10px;
 }

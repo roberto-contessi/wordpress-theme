@@ -1,96 +1,108 @@
-    // .navbar-light .navbar-toggler {
-    //     border: 0px;
-    // }
-    // .navbar-collapse.show {
-    //     height: 100vh;
-    // }
-    // .navbar-collapse {
-    //     background-color: $primary;
-    // }
-    // .navbar-nav.ml-auto {
-    //     margin: 0 !important;
-    //     height: 100vh;
-    //     display: flex;
-    //     justify-content: space-evenly;
-    // }
-    // .nave-link a:link {
-    //     color: green;
-    // }
-    // .navbar-light .navbar-nav .nav-link {
-    //     color: white;
-    //     text-transform: uppercase;
-    //     font-weight: 600;
-    //     font-size: 2em;
-    //     text-align: center;
-    // }
-    //menu
-    .navbar-light .navbar-toggler {
-        border: 0px;
-    }
-    
-    .navbar {
-        padding-top: 0px!important;
-        padding-bottom: 0px!important;
-    }
-    
-    .menu-item {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        margin-left: 1rem;
-        position: relative;
-        a {
+        //menu
+        .navbar-light .navbar-toggler {
+            border: 0px;
+        }
+        
+        .navbar {
+            padding-top: 0px!important;
+            padding-bottom: 0px!important;
+        }
+        
+        .menu-item {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            margin-left: 1rem;
+            position: relative;
+            a {
+                &:hover {
+                    text-decoration: none!important;
+                }
+            }
+            &:before {
+                content: "";
+                width: 0%;
+                height: 6px;
+                background-color: $primary;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                transition: .5s;
+            }
             &:hover {
-                text-decoration: none!important;
+                &:before {
+                    width: 100%;
+                }
             }
         }
-        &:hover {
+        
+        .navbar-light .nav nav .nav-link {
+            padding-left: 0px;
+            padding-right: 0px;
+            color: $primary;
+        }
+        
+        .current-menu-item {
+            position: relative;
+            bottom: -5px;
             &:before {
                 content: "";
                 width: 100%;
                 height: 6px;
                 background-color: $primary;
                 position: absolute;
-                bottom: 0px;
+                bottom: 5px;
                 left: 0px;
             }
         }
-    }
-    
-    .navbar-light .nav nav .nav-link {
-        padding-left: 0px;
-        padding-right: 0px;
-        color: $primary;
-    }
-    
-    .current-menu-item {
-        position: relative;
-        bottom: -5px;
-        &:before {
-            content: "";
-            width: 100%;
-            height: 6px;
-            background-color: $primary;
-            position: absolute;
-            bottom: 5px;
-            left: 0px;
-        }
-    }
-    
-    .current-menu-item {
-        &:hover {
-            &:before {
-                bottom: 5px;
+        
+        .current-menu-item {
+            &:hover {
+                &:before {
+                    bottom: 5px;
+                }
             }
         }
-    }
-    
-    .nav-link {
-        text-transform: uppercase;
-        color: $primary !important;
-        font-weight: 500;
-        font-size: 0.9em;
-    }
-    
-    .nav-link:hover {
-        font-weight: 800;
-    }
+        
+        .nav-link {
+            text-transform: uppercase;
+            color: $primary !important;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        #wpadminbar {
+            position: fixed;
+            top: 0;
+        }
+        
+        .nav-link:hover {
+            font-weight: 800;
+        }
+        
+        @media (max-width: 992px) {
+            .navbar-light .navbar-toggler {
+                border: 0px;
+            }
+            .navbar-collapse.show {
+                height: 100vh;
+            }
+            .navbar-collapse {
+                background-color: $primary;
+            }
+            .navbar-nav.ml-auto {
+                margin: 0 !important;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+            }
+            .navbar-light .navbar-nav .nav-link {
+                color: white;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 2em;
+                text-align: center;
+            }
+            .nav-link {
+                color: white!important;
+            }
+        }

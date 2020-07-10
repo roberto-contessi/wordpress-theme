@@ -1,7 +1,11 @@
 <?php
 /**
  * header logo template part
- * 
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package WordPress
+ * @subpackage Rob_Theme
+ * @since 1.0.0
  */
 
 // Image variables.

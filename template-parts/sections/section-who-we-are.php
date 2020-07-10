@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package WordPress
- * @subpackage Sam_Theme
+ * @subpackage Rob_Theme
  * @since 1.0.0
  */
 ?>
@@ -23,7 +23,7 @@ if($who_we_are):
                     <div class="col-12 col-md-6 section-y-padding">
                         <h2 class="text-primary text-uppercase">
                         
-                        <?php 
+                            <?php 
                             if(isset ($who_we_are['title'])&& $who_we_are['title'] ){ 
                                 echo $who_we_are['title']; 
                             } else {
@@ -42,9 +42,11 @@ if($who_we_are):
                             
                     </div>
 
-                    <?php if( !empty( $who_we_are['image'] ) ): ?>
-    <img src="<?php echo esc_url($who_we_are['image']['url']); ?>" alt="<?php echo esc_attr($who_we_are['image']['alt']); ?>" />
-<?php endif; ?>
+                    <div class="col-6 d-none d-md-block img-100">
+                        <?php if( !empty( $who_we_are['image'] ) ): ?>
+                        <img src="<?php echo esc_url($who_we_are['image']['url']); ?>" alt="<?php echo esc_attr($who_we_are['image']['alt']); ?>" />
+                        <?php endif; ?>
+                    </div>
                       
                     </div>
                 </div>

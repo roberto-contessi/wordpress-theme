@@ -1,9 +1,15 @@
 <?php
-/**navbar 
+/**
+ * navbar 
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package WordPress
+ * @subpackage Rob_Theme
+ * @since 1.0.0
  **/
 ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
+      <div class="container ">
         <?php get_template_part('template-parts/navbar/navbar', 'logo');
         ?>
         

@@ -1,6 +1,9 @@
 <article class="tease-<?php echo $post->post_type ?>">
 
+ <?php 
+//$estratto = get_the_excerpt();
 
+?>
 
 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
         <?php the_post_thumbnail('full', array('class' => 'your-class-name')); ?>
@@ -21,6 +24,7 @@
 
     <span class="data-copy"><?php echo get_the_date(); ?></span> <br>
 
-    <div class="title-recent-post"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></div>
-
+    <div class="title-recent-post"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><p><?php the_title(); ?></p>
+   </a></div>
+ 
 <article>
